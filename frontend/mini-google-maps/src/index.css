@@ -3,9 +3,25 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* VS Code Dark Theme Colors */
+  --vscode-background: #1e1e1e;
+  --vscode-sidebar: #252526;
+  --vscode-editor: #1e1e1e;
+  --vscode-text: #cccccc;
+  --vscode-text-secondary: #858585;
+  --vscode-accent: #007acc;
+  --vscode-accent-hover: #0098ff;
+  --vscode-border: #3e3e42;
+  --vscode-hover: #2a2d2e;
+  --vscode-selection: #264f78;
+  --vscode-button: #0e639c;
+  --vscode-button-hover: #1177bb;
+  --vscode-input-background: #3c3c3c;
+  --vscode-input-border: #454545;
+
+  color-scheme: dark;
+  color: var(--vscode-text);
+  background-color: var(--vscode-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,24 +31,38 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--vscode-accent);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--vscode-accent-hover);
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--vscode-background);
+  color: var(--vscode-text);
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--vscode-background);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--vscode-text);
 }
 
 button {
@@ -42,27 +72,17 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--vscode-button);
+  color: var(--vscode-text);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--vscode-button-hover);
+  border-color: var(--vscode-accent);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  outline: 2px solid var(--vscode-accent);
+  outline-offset: 2px;
 }

@@ -1,0 +1,547 @@
+.algorithm-info-container {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--vscode-background);
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.info-header {
+  text-align: center;
+  color: var(--vscode-text);
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.info-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.algorithms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.algorithm-card {
+  background: var(--vscode-sidebar);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--vscode-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.algorithm-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-section {
+  margin-bottom: 2rem;
+}
+
+.card-section:last-child {
+  margin-bottom: 0;
+}
+
+.card-section h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--vscode-text);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--vscode-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-section p {
+  color: var(--vscode-text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.complexity-badge {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--vscode-accent);
+  color: white;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 122, 204, 0.3);
+}
+
+.features-list,
+.usecases-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features-list li,
+.usecases-list li {
+  padding: 0.75rem 0;
+  color: var(--vscode-text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.feature-icon {
+  color: #4ec9b0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.usecase-icon {
+  color: var(--vscode-accent);
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.comparison-section {
+  background: var(--vscode-sidebar);
+  border-radius: 8px;
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+  border: 1px solid var(--vscode-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.comparison-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--vscode-text);
+  margin: 0 0 2rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.comparison-table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--vscode-input-background);
+}
+
+.comparison-info-table thead {
+  background: var(--vscode-accent);
+  color: white;
+}
+
+.comparison-info-table th {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.comparison-info-table td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--vscode-border);
+  color: var(--vscode-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.comparison-info-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.comparison-info-table tbody tr:hover {
+  background: var(--vscode-hover);
+  transform: scale(1.005);
+}
+
+.algo-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.success-cell {
+  color: #4ec9b0;
+  font-weight: 700;
+}
+
+.error-cell {
+  color: #f48771;
+  font-weight: 700;
+}
+
+.yes-cell {
+  color: var(--vscode-accent);
+  font-weight: 700;
+}
+
+.no-cell {
+  color: var(--vscode-text-secondary);
+  font-weight: 500;
+}
+
+.formula-section {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.formula-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--vscode-text);
+  margin: 0 0 2rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.formulas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.formula-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.formula-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.formula-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--vscode-text);
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.formula {
+  text-align: center;
+}
+
+.formula p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0.5rem 0;
+  font-family: 'Courier New', monospace;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.formula-desc {
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: #6c757d !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background: transparent !important;
+  padding: 0.5rem 0 !important;
+  margin-top: 1rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Responsive Design */
+/* Tablet */
+@media (max-width: 1024px) {
+  .algorithm-info-container {
+    padding: 1.5rem;
+  }
+
+  .info-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .algorithms-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .comparison-section,
+  .formula-section {
+    padding: 2rem;
+  }
+
+  .comparison-info-table th,
+  .comparison-info-table td {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .algorithm-info-container {
+    padding: 1rem;
+  }
+
+  .info-header {
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+  }
+
+  .info-header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .algorithms-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .card-header {
+    padding: 1.5rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .card-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .card-section p {
+    font-size: 0.95rem;
+  }
+
+  .complexity-badge {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.25rem;
+  }
+
+  .features-list li,
+  .usecases-list li {
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+  }
+
+  .comparison-section,
+  .formula-section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .comparison-section h2,
+  .formula-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-info-table {
+    font-size: 0.85rem;
+  }
+
+  .comparison-info-table th,
+  .comparison-info-table td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .formulas-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .formula-card {
+    padding: 1.5rem;
+  }
+
+  .formula-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .formula p {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .algorithm-info-container {
+    padding: 0.75rem;
+  }
+
+  .info-header {
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .algorithms-grid {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-header {
+    padding: 1rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-section {
+    margin-bottom: 1rem;
+  }
+
+  .card-section h3 {
+    font-size: 1rem;
+  }
+
+  .card-section p {
+    font-size: 0.9rem;
+  }
+
+  .complexity-badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .features-list li,
+  .usecases-list li {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+
+  .comparison-section,
+  .formula-section {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-section h2,
+  .formula-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .comparison-info-table {
+    font-size: 0.75rem;
+  }
+
+  .comparison-info-table th,
+  .comparison-info-table td {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .comparison-info-table th {
+    font-size: 0.7rem;
+  }
+
+  .formulas-grid {
+    gap: 0.75rem;
+  }
+
+  .formula-card {
+    padding: 1rem;
+  }
+
+  .formula-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .formula p {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .formula-desc {
+    font-size: 0.8rem !important;
+  }
+}
+
