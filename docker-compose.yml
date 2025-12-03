@@ -1,0 +1,45 @@
+services:
+  # ==============================
+  # Dịch vụ 1: Backend (FastAPI)
+  # ==============================
+  backend:
+    # Chỉ định vị trí Dockerfile của backend
+    build:
+      context: ./backend 
+      dockerfile: Dockerfile
+    container_name: map_backend
+    # Mở port 3000 ra máy Host
+    ports:
+      - "3000:3000"
+    # Volume mapping cho môi trường phát triển (Dev)
+    # Giúp code thay đổi trên máy Host được cập nhật trong container
+    volumes:
+      - ./backend:/app
+    # Luôn khởi động lại nếu có lỗi
+    restart: always
+    
+  # ==============================
+  # Dịch vụ 2: Frontend (React/Vite)
+  # ==============================
+  frontend:
+    # Chỉ định vị trí Dockerfile của frontend
+    build:
+      # Context là thư mục chứa Dockerfile (tức là frontend/)
+      context: ./frontend 
+      dockerfile: Dockerfile
+    container_name: map_frontend
+    # Mở port 5173 ra máy Host (port mặc định của Vite)
+    ports:
+      - "5173:5173"
+    # Volume mapping cho môi trường phát triển (Dev/Hot-Reload)
+    volumes:
+      # Map thư mục code gốc của React vào WORKDIR /app
+      # Nguồn: ./frontend/mini-google-maps (trên máy Host)
+      # Đích: /app (trong container)
+      - ./frontend/mini-google-maps:/app
+      # Giúp node_modules (nằm trong /app) không bị ghi đè bởi thư mục rỗng trên Host
+      - /app/node_modules 
+    restart: always
+    # Đảm bảo Backend khởi chạy trước Frontend
+    depends_on:
+      - backend
